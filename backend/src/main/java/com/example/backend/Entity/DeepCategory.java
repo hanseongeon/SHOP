@@ -9,10 +9,16 @@ import java.util.List;
 @Entity
 @Setter
 @Getter
-public class Brand {
+public class DeepCategory {
     @Id
-    private String brandName;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    @OneToMany(mappedBy = "brand")
+    private String name;
+
+    @OneToMany
     private List<Item> itemList;
+
+    @ManyToOne
+    private Category category;
 }
