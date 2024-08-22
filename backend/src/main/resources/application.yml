@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: backend
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    password: ''
+    username: root
+    url: jdbc:mysql://localhost:3306/shop?useUnicode=true&characterEncoding=utf8&autoReconnect=true&serverTimezone=Asia/Seoul
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: 'true'
+        show_sql: 'false'
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: false
+sever:
+  port: 8088
