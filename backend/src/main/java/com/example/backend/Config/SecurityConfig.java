@@ -18,7 +18,7 @@ public class SecurityConfig {
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests ((authorizeHttpRequests) -> authorizeHttpRequests
-                        .requestMatchers ("/user/**", "/ttt").permitAll ().anyRequest ().authenticated ())
+                        .requestMatchers ("/**").permitAll ().anyRequest ().authenticated ())
                 .formLogin (formLogin ->
                         formLogin.loginPage ("/user/login")
                                 .defaultSuccessUrl ("/", true)
