@@ -1,43 +1,52 @@
 package com.example.backend.Config;
 
+import com.example.backend.Entity.SiteUser;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
 public class UserDetail implements UserDetails {
+    private final SiteUser siteUser;
+
+    private final Collection<? extends GrantedAuthority> authorities;
+
+    public UserDetail(SiteUser siteUser, Collection<? extends GrantedAuthority> authorities) {
+        this.siteUser = siteUser;
+        this.authorities = authorities;
+    }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return authorities;
     }
 
     @Override
     public String getPassword() {
-        return null;
+        return siteUser.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return siteUser.getId();
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return UserDetails.super.isAccountNonExpired();
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return UserDetails.super.isAccountNonLocked();
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return UserDetails.super.isCredentialsNonExpired();
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return UserDetails.super.isEnabled();
+        return true;
     }
 }
